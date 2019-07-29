@@ -7,7 +7,7 @@ wb = Workbook()
 ws = wb.add_sheet("TestSheet")
 
 #Define excel style
-Style = easyxf("font: bold on; pattern: pattern solid, fore_color Red;")
+Style = easyxf("font: name segoe print, bold on; pattern: pattern solid, fore_color Red;")
 
 cSql = 'SHOW DATABASES'
 cur.execute(cSql)
