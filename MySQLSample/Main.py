@@ -1,10 +1,13 @@
 import mysql.connector
-from xlwt import Workbook
+from xlwt import Workbook, Formula, easyxf
 
 con = mysql.connector.connect(host='localhost',database='mysql',user='root',password='Pigbbong04!@')
 cur = con.cursor()
 wb = Workbook()
 ws = wb.add_sheet("TestSheet")
+
+#Define excel style
+Style = easyxf("font: bold on; pattern: pattern solid, fore_color Red;")
 
 cSql = 'SHOW DATABASES'
 cur.execute(cSql)
@@ -25,9 +28,9 @@ if bCreateDB:
 
 con.close()
 
-ws.write(0,0,"Test 1")
+ws.write(0,0,"Test 1", Style)
 ws.write(0,1,"Test 2")
-wb.save(r"C:\Users\WH\Downloads\Test.xlsx")
+wb.save(r"C:\Users\WH\Downloads\Test.xls")
 
 print(cMsg)
 #Query to check is MySQL DB exists = 'CREATE DATABASE IF NOT EXISTS Students;'
